@@ -2,6 +2,7 @@
   "name": "liv-platform",
   "version": "1.0.0",
   "description": "LIV - Real-time Dormitory Booking Platform",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",

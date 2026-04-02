@@ -247,9 +247,16 @@ app.post('/api/auth/otp/verify', (req, res) => {
   }
 });
 
+import fs from 'fs';
+
 // Fallback for React Router
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
+  const filePath = path.join(__dirname, '../dist/index.html');
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+  } else {
+    res.status(503).send('Frontend not built. Please run "npm run build" first.');
+  }
 });
 
 app.listen(port, () => {
